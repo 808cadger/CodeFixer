@@ -34,8 +34,8 @@ Current result on the development machine:
 {
   "runs": 5000,
   "diagnostics": 5000,
-  "total_ms": 127.46,
-  "avg_ms_per_analysis": 0.0255
+  "total_ms": 174.64,
+  "avg_ms_per_analysis": 0.0349
 }
 ```
 
