@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f766e">
+    <title>CodeFixer</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">CodeFixer</p>
+        <h1>Catch coding mistakes before you run them.</h1>
+      </div>
+      <div class="header-actions">
+        <select id="languageSelect" aria-label="Language">
+          <option value="python">Python</option>
+          <option value="javascript">JavaScript</option>
+        </select>
+        <button id="loadDemoButton" class="secondary-button" type="button">Load Demo</button>
+        <button id="analyzeButton" type="button">Analyze</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="editor-panel" aria-label="Code editor">
+        <div class="panel-title-row">
+          <h2>Editor</h2>
+          <span id="statusBadge" class="status-badge">Demo mode</span>
+        </div>
+        <textarea id="codeEditor" spellcheck="false" aria-label="Paste code here"></textarea>
+      </section>
+
+      <section class="results-grid" aria-label="Analysis results">
+        <article class="result-panel">
+          <h2>Syntax Issues</h2>
+          <div id="errorPanel" class="panel-content empty">No analysis yet.</div>
+        </article>
+
+        <article class="result-panel">
+          <h2>Plain-English Explanation</h2>
+          <div id="explanationPanel" class="panel-content empty">Click Analyze to get a short explanation.</div>
+        </article>
+
+        <article class="result-panel">
+          <div class="panel-title-row">
+            <h2>Fix Suggestion</h2>
+            <button id="applyFixButton" class="small-button" type="button" disabled>Apply Fix</button>
+          </div>
+          <div id="fixPanel" class="panel-content empty">Safe fixes will appear here.</div>
+        </article>
+
+        <article class="result-panel">
+          <h2>Test Runner</h2>
+          <div id="testPanel" class="panel-content empty">Tests have not run yet.</div>
+        </article>
+
+        <article class="result-panel wide">
+          <h2>Logic Warnings</h2>
+          <div id="warningPanel" class="panel-content empty">Low-confidence warnings appear here when something looks suspicious.</div>
+        </article>
+      </section>
+    </main>
+
+    <script src="src/analyzer.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

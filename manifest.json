@@ -1,0 +1,17 @@
+{
+  "name": "CodeFixer",
+  "short_name": "CodeFixer",
+  "description": "A lightweight coding assistant for catching and fixing beginner Python and JavaScript mistakes.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f6f8f7",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f8f7;
+  --panel: #ffffff;
+  --ink: #17211f;
+  --muted: #66736f;
+  --line: #d9e2df;
+  --accent: #0f766e;
+  --accent-dark: #0b514c;
+  --warning: #a15c07;
+  --error: #b42318;
+  --ok: #177245;
+  --shadow: 0 16px 40px rgba(17, 35, 31, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+.app-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px clamp(16px, 4vw, 48px) 18px;
+  border-bottom: 1px solid var(--line);
+  background: #fbfcfc;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 0;
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+select,
+button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 14px;
+}
+
+select {
+  min-width: 140px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+button {
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.secondary-button,
+.small-button {
+  background: #ffffff;
+  color: var(--accent-dark);
+}
+
+.small-button {
+  min-height: 34px;
+  padding-inline: 12px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(360px, 0.9fr);
+  gap: 18px;
+  padding: 18px clamp(16px, 4vw, 48px) 36px;
+}
+
+.editor-panel,
+.result-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.editor-panel {
+  display: flex;
+  min-height: calc(100vh - 156px);
+  flex-direction: column;
+  padding: 16px;
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border: 1px solid #b7ddd8;
+  border-radius: 999px;
+  padding: 0 10px;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+#codeEditor {
+  flex: 1;
+  width: 100%;
+  min-height: 520px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #101817;
+  color: #e9f4f1;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  tab-size: 4;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.result-panel {
+  padding: 16px;
+}
+
+.panel-content {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.issue-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issue-card {
+  border-left: 4px solid var(--error);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff7f6;
+  color: var(--ink);
+}
+
+.issue-card.warning {
+  border-left-color: var(--warning);
+  background: #fff8ed;
+}
+
+.issue-card.ok {
+  border-left-color: var(--ok);
+  background: #f1faf5;
+}
+
+.issue-card strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.code-preview {
+  display: block;
+  overflow-x: auto;
+  margin-top: 8px;
+  border-radius: 6px;
+  padding: 10px;
+  background: #101817;
+  color: #e9f4f1;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.empty {
+  color: #7a8582;
+}
+
+@media (max-width: 920px) {
+  .app-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-panel {
+    min-height: auto;
+  }
+
+  #codeEditor {
+    min-height: 360px;
+  }
+}
