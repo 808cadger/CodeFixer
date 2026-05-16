@@ -43,11 +43,28 @@ http://127.0.0.1:8080
 CodeFixer uses simple static checks first:
 
 - Missing closing brackets.
+- Mismatched brackets.
 - Missing quotes.
 - Missing Python colons.
 - Assignment inside `if`/`while` conditions.
 - Suspicious JavaScript `<= array.length` loops.
 - Unusual Python indentation.
+- JavaScript loose equality warnings.
+
+## Architecture and benchmarks
+
+- Architecture notes: [`ARCHITECTURE.md`](ARCHITECTURE.md)
+- Benchmark notes: [`BENCHMARKS.md`](BENCHMARKS.md)
+
+Quality gates:
+
+```bash
+node --check src/analyzer.js
+node --check src/app.js
+node --check sw.js
+node tests/analyzer.test.js
+node benchmarks/run-benchmark.js
+```
 
 ## AI use
 
